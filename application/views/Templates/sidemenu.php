@@ -1,5 +1,5 @@
 <!-- Left Sidebar -->
-<div class="left main-sidebar">
+<div class="left main-sidebar" style="width: 260px;">
 
   <div class="sidebar-inner leftscroll">
 
@@ -31,7 +31,8 @@
         <li class="submenu">
           <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> <span> สินค้า </span> <span class="menu-arrow"></span></a>
           <ul class="list-unstyled">
-            <li><a href="<?php echo SITE_URL('ProductGroup'); ?>">จัดการหมวดหมู่สินค้า</a></li>
+            <li><a href="<?php echo SITE_URL('ProductGroup'); ?>"><i class="fa fa-fw fa-edit"></i>จัดการหมวดหมู่สินค้า</a></li>
+            <li><a href="<?php echo SITE_URL('Product'); ?>"><i class="fa fa-fw fa-edit"></i>จัดการสินค้า</a></li>
             <!-- <li><a href="#"> - โทรศัพท์</a></li>
             <li><a href="#"> - คอมพิวเตอร์</a></li>
             <li><a href="#"> - ทีวี</a></li>

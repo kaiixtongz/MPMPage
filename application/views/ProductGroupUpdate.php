@@ -1,6 +1,8 @@
-<?php echo form_open_multipart('ProductGroup/ProductGroupInsert')?>
+<?php foreach ($dataShow as $dataUpdate): ?>
 
-  <div class="modal fade" id="RegisterPosition" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <?php echo form_open_multipart('ProductGroup/ProductGroupUpdate')?>
+
+  <div class="modal fade" id="ProductGroupUpdate<?php echo $dataUpdate['productGroupId']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
@@ -16,7 +18,11 @@
           <table>
           <tr>
             <td class="text-center">ชื่อหมวดหมู่ : &nbsp;</td>
-            <td class="text-center"><input autocomplete="off" name="productGroupName" type="text" required class="form-control" style="margin-top:20px;" required></td>
+            <td class="text-center">
+              <input type="hidden" name="productGroupId" value="<?php echo $dataUpdate['productGroupId'] ?>">
+              <input type="text" class="form-control" name="productGroupName" value="<?php echo $dataUpdate['productGroupName'] ?>" autocomplete="off" style="margin-top:20px;" required>
+              <input type="hidden" name="productGroupConnect" value="<?php echo $dataUpdate['productGroupConnect'] ?>">
+            </td>
           </tr>
         </table>
         </center>
@@ -32,3 +38,5 @@
   </div>
 
   <?php echo form_close()?>
+
+<?php endforeach; ?>

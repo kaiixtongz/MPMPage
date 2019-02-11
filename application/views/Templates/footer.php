@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" style="margin-left:10px">
   <span class="text-right">
   Copyright <a target="_blank" href="#">Your Website</a>
   </span>
@@ -61,7 +61,7 @@ function logout(){
   // user is now logged out
   // console.log(response);
   window.location = '<?php echo SITE_URL('Login/Logout'); ?>';
-  
+
  });
 }
 
