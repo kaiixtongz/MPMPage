@@ -3,22 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProductGroupModel extends CI_Model {
 
-  // function ที่ใช้ในการดึงค่า หมวดหมู่สินค้า จาก Database มาแสดง โดยมีการรับค่าที่ถูกส่งมาจาก Controller $profileId เพื่อเอามาใช้ในการเช็ค
-  public function ProductGroupSelect($profileId)
+  // function ที่ใช้ในการดึงค่า หมวดหมู่สินค้า จาก Database มาแสดง โดยมีการรับค่าที่ถูกส่งมาจาก Controller $facebookId เพื่อเอามาใช้ในการเช็ค
+  public function ProductGroupSelect($facebookId)
   {
     // การสร้างตัวแปลมารอไว้ เพื่อเก็บค่าที่ค้นหามาได้ $dataShow
-    $dataShow = $this->db
+    $dataProductGroup = $this->db
     // การทำเงื่อนไขว่า ค่าที่อยู่ใน Field/Column บน Database ที่มีชื่อว่า productGroupStatus ต้องมีค่าเท่ากับ 1 เท่านั้น
     ->where('productGroupStatus',1)
-    // การทำเงื่อนไขว่า ค่าที่อยู่ใน Field/Column บน Database ที่มีชื่อว่า productGroupConnect ต้องมีค่าตรงกับ $profileId เท่านั้น
-    ->where('productGroupConnect',$profileId)
+    // การทำเงื่อนไขว่า ค่าที่อยู่ใน Field/Column บน Database ที่มีชื่อว่า productGroupConnect ต้องมีค่าตรงกับ $facebookId เท่านั้น
+    ->where('productGroupConnect',$facebookId)
     // การชี้ทาง ว่าเราต้องการค้นหาใน Table ไหน
     ->get('product_group')
     // นำค่าที่ผ่านการค้นหามา บีบอัดให้กลายเป็นรูปแบบ Array เพิ่อนำไปใช้งานต่อ การใช้งานต่อคือการเอาไปเก็บไว้ใน $dataShow
     ->result_array();
 
     // การส่งค่าที่ได้มาจากการค้นหา กลับไปยัง controller/function ที่เรียกใช้ function นี้
-    return $dataShow;
+    return $dataProductGroup;
 
   }
 

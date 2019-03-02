@@ -1,4 +1,4 @@
-<?php foreach ($dataShow as $dataUpdate): ?>
+<?php foreach ($dataProductGroup as $dataUpdate): ?>
 
   <?php echo form_open_multipart('ProductGroup/ProductGroupUpdate')?>
 

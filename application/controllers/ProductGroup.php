@@ -37,12 +37,12 @@ class ProductGroup extends CI_Controller {
 
 		 // การดึงค่ามาเก็บไว้ใน Array เพื่อทำการส่งไปที่อีกฟังก์ชั่น
 
-		$dataShow = $this->ProductGroupModel->ProductGroupSelect($_SESSION['profileId']);
+		$dataProductGroup = $this->ProductGroupModel->ProductGroupSelect($_SESSION['facebookId']);
 
 	 	$Value = array(
 	 		'View' => "ProductGroup",
 	 		'Result' => array(
-	 			'dataShow' => $dataShow,
+	 			'dataProductGroup' => $dataProductGroup,
 	 		)
 	 	);
 	 	$this->LoadPage($Value);
@@ -53,8 +53,8 @@ class ProductGroup extends CI_Controller {
 	 {
 		 // การรับข้อมูลที่ถูกส่งมาจาก Modal ProductGroupInsert ในรูปแบบ Method Post เพื่อนำมาเก็บในตัวแปล $dataInsert
 		 $dataInsert = $this->input->post();
-		 // การนำค่า SESSION['profileId'] หรือ FacebookID เก็บลงไปใน $dataInsert เพื่อใช้ในการแยกหมวดหมุ่
-		 $dataInsert['productGroupConnect'] = $_SESSION['profileId'];
+		 // การนำค่า SESSION['facebookId'] หรือ FacebookID เก็บลงไปใน $dataInsert เพื่อใช้ในการแยกหมวดหมุ่
+		 $dataInsert['productGroupConnect'] = $_SESSION['facebookId'];
 
 		 // การเช็คว่าค่าที่ถูกส่งมานั้น เป็นค่าว่าหรือป่าว ** การ trim() คือการตัด Spacebar ออก
 		 if(trim($dataInsert['productGroupName']) == ""){
@@ -107,20 +107,21 @@ class ProductGroup extends CI_Controller {
 
 	 // function สำหรับการลบหมวดหมู่สินค้า
 	 public function ProductGroupDelete()
-	{
+ {
 
-		// รับค่าจากการส่งในรูปแบบ Get มาเก็บไว้ใน Opject ที่ชื่อว่า $dataDelete โดยมีการนำค่า productGroupId มาเก็บไว้
-		$dataDelete['productGroupId'] = $this->uri->segment(3);
-		// นำค่า 2 มาใส่ไว้เพื่อ ทำการลบ โดยการเปลี่ยน Status จาก 1 เป็น 2
-		$dataDelete['productGroupStatus'] = 2;
+	 // รับค่าจากการส่งในรูปแบบ Get มาเก็บไว้ใน Opject ที่ชื่อว่า $dataDelete โดยมีการนำค่า productGroupId มาเก็บไว้
+	 $dataDelete['productGroupId'] = $this->uri->segment(3);
+	 // นำค่า 2 มาใส่ไว้เพื่อ ทำการลบ โดยการเปลี่ยน Status จาก 1 เป็น 2
+	 $dataDelete['productGroupStatus'] = 2;
 
-		// ทำการติดต่อ Database โดยไปที่หน้า ProductGroupModel/ProductGroupDelete และมีการส่งค่า $dataDelete ไปด้วย
-		$this->ProductGroupModel->ProductGroupDelete($dataDelete);
+	 // ทำการติดต่อ Database โดยไปที่หน้า ProductGroupModel/ProductGroupDelete และมีการส่งค่า $dataDelete ไปด้วย
+	 $this->ProductGroupModel->ProductGroupDelete($dataDelete);
 
-		// ทำการลบเรียบร้อย มีการแจ้งเตือน มีการย้ายไปหน้า ProductGroup
-		echo "<script>alert('ลบหมวดหมู่สินค้าเรียบร้อย')</script>";
-		echo "<script>document.location=('".SITE_URL('ProductGroup')."')</script>";
+	 // ทำการลบเรียบร้อย มีการแจ้งเตือน มีการย้ายไปหน้า ProductGroup
+	 echo "<script>alert('ลบหมวดหมู่สินค้าเรียบร้อย')</script>";
+	 echo "<script>document.location=('".SITE_URL('ProductGroup')."')</script>";
 
-	}
+ }
+
 
 }

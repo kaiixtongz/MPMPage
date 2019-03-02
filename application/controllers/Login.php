@@ -22,7 +22,7 @@ class Login extends CI_Controller {
           echo "Login Success";
 
           @session_start();
-          $_SESSION['profileId'] = $postData->id;
+          $_SESSION['facebookId'] = $postData->id;
 					$_SESSION['profileFname'] = $postData->first_name;
           $_SESSION['profileLname'] = $postData->last_name;
           $_SESSION['profileEmail'] = $postData->email;

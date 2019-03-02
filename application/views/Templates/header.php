@@ -48,7 +48,7 @@
 
 		<!-- LOGO -->
         <div class="headerbar-left">
-			<a href="index.html" class="logo"><img alt="Logo" src="<?php echo BASE_URL('assets/Admin/'); ?>assets/images/logo.png" /> <span>Admin</span></a>
+			<a href="#" class="logo"><img alt="Logo" src="<?php echo BASE_URL('assets/Admin/'); ?>assets/images/logo.png" /> <span>Admin</span></a>
         </div>
 
         <nav class="navbar-custom">
@@ -213,13 +213,13 @@
 
                     </ul>
 
-                    <ul class="list-inline menu-left mb-0">
+                    <!-- <ul class="list-inline menu-left mb-0">
                         <li class="float-left">
                             <button class="button-menu-mobile open-left">
 								<i class="fa fa-fw fa-bars"></i>
                             </button>
                         </li>
-                    </ul>
+                    </ul> -->
 
         </nav>
 

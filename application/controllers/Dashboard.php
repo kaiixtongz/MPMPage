@@ -18,7 +18,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data = $Value['Result'];
 
-		$this->load->view('Templates/header');
+		$this->load->view('Templates/header',$data);
 		$this->load->view('Templates/sidemenu');
 		$this->load->view($Value['View']);
 		$this->load->view('Templates/footer');
@@ -26,10 +26,13 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+
+		$dataProductGroup = $this->ProductGroupModel->ProductGroupSelect($_SESSION['facebookId']);
+
 		$Value = array(
 			'View' => "Dashboard",
 			'Result' => array(
-				// 'dataShow' => $dataShow,
+				'dataProductGroup' => $dataProductGroup,
 			)
 		);
 		$this->LoadPage($Value);
