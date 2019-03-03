@@ -75,8 +75,10 @@ class Payment extends CI_Controller {
 					$dataInsert['paymentDetail'] = "ธนาคารกรุงศรีอยุธยา";
 			} else if($dataInsert['paymentImage'] == "tmb.png"){
 					$dataInsert['paymentDetail'] = "ธนาคารทหารไทย";
+			} else if($dataInsert['paymentImage'] == "gsb.png"){
+						$dataInsert['paymentDetail'] = "ธนาคารออมสิน";
 			} else {
-				$dataInsert['paymentDetail'] = "ธนาคารออมสิน";
+				$dataInsert['paymentDetail'] = "พร้อมเพย์";
 			}
 
 			$dataInsert['paymentConnect'] = $_SESSION['facebookId'];
@@ -117,8 +119,10 @@ class Payment extends CI_Controller {
 					$dataUpdate['paymentDetail'] = "ธนาคารกรุงศรีอยุธยา";
 			} else if($dataUpdate['paymentImage'] == "tmb.png"){
 					$dataUpdate['paymentDetail'] = "ธนาคารทหารไทย";
+			} else if($dataUpdate['paymentImage'] == "gsb.png"){
+				  $dataUpdate['paymentDetail'] = "ธนาคารออมสิน";
 			} else {
-				$dataUpdate['paymentDetail'] = "ธนาคารออมสิน";
+				  $dataUpdate['paymentDetail'] = "พร้อมเพย์";
 			}
 
 			$this->PaymentModel->PaymentUpdate($dataUpdate);

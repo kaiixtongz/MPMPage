@@ -36,9 +36,9 @@
 
 														<tr>
 															<td class="text-center"> <b> <?php echo $i ?> </b> </td>
-															<td> <b> <?php echo $dataCustomer['customerName'] ?> </b> </td>
-                              <td> <b> <?php echo $dataCustomer['customerTel'] ?> </b> </td>
-                              <td> <b> <?php echo $dataCustomer['customerEmail'] ?> </b> </td>
+															<td class="text-left"> <b> <?php echo $dataCustomer['customerName'] ?> </b> </td>
+                              <td class="text-center"> <b> <?php echo $dataCustomer['customerTel'] ?> </b> </td>
+                              <td class="text-left"> <b> <?php echo $dataCustomer['customerEmail'] ?> </b> </td>
 
 															<td class="text-center">
 

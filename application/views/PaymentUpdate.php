@@ -29,6 +29,8 @@
                     <option value="krungsri.png">ธนาคารกรุงศรีอยุธยา</option>
                     <option value="tmb.png">ธนาคารทหารไทย </option>
                     <option value="gsb.png">ธนาคารออมสิน</option>
+                    <option value="promptpay.png">พร้อมเพย์</option>
+                    
                   </select>
                 </td>
               </tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2019 at 04:34 AM
+-- Generation Time: Mar 03, 2019 at 05:40 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -53,6 +53,37 @@ INSERT INTO `customer` (`customerId`, `customerName`, `customerTel`, `customerEm
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `express`
+--
+
+CREATE TABLE `express` (
+  `expressId` int(11) NOT NULL,
+  `expressName` varchar(100) NOT NULL,
+  `expressPrice` varchar(100) NOT NULL,
+  `expressDetail` varchar(100) NOT NULL,
+  `expressImage` varchar(100) NOT NULL,
+  `expressConnect` varchar(100) NOT NULL,
+  `expressStatus` int(11) NOT NULL DEFAULT '1',
+  `expressTimeLog` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `express`
+--
+
+INSERT INTO `express` (`expressId`, `expressName`, `expressPrice`, `expressDetail`, `expressImage`, `expressConnect`, `expressStatus`, `expressTimeLog`) VALUES
+(1, 'ส่งด่วน', '70 บาท', 'Nim Express', 'nimexpress.png', '868189996689324', 1, '2019-03-03 16:03:30'),
+(2, 'ส่งด่วน', '90 บาท', 'Alpha', 'alpha.png', '868189996689324', 1, '2019-03-03 16:29:33'),
+(3, 'เก็บเงินปลายทาง', '200 บาท', 'ไปรษณีย์ไทย', 'thaipost.png', '868189996689324', 1, '2019-03-03 16:04:13'),
+(4, 'วินมอเตอร์ไซค์', 'ตามระยะทาง ', 'อื่น ๆ', 'other.png', '868189996689324', 1, '2019-03-03 16:04:49'),
+(5, 'ธรรมดา', '60 บาท', 'Lineman', 'lineman.png', '868189996689324', 1, '2019-03-03 16:05:15'),
+(6, 'ส่งด่วน', 'ตามระยะทาง', 'Grab Express', 'grab.png', '868189996689324', 1, '2019-03-03 15:18:25'),
+(7, 'ส่งด่วน', 'เก็บเงินปลายทาง + ค่าส่งตามระยะทาง', 'Lalamove', 'lalamove.png', '868189996689324', 1, '2019-03-03 15:19:05'),
+(8, 'เก็บเงินปลายทาง', '160', 'Kerry', 'kerry.png', '868189996689324', 2, '2019-03-03 16:20:32');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -78,7 +109,8 @@ INSERT INTO `payment` (`paymentId`, `paymentName`, `paymentNumber`, `paymentDeta
 (4, 'ณัฐวุฒิ พวงไทย', '2415236902', 'ธนาคารออมสิน', 'gsb.png', '868189996689324', 1, '2019-03-03 02:13:25'),
 (5, 'สุทธิวัช ชินอักษร', '1420315426', 'ธนาคารกรุงไทย', 'ktb.png', '868189996689324', 2, '2019-03-03 03:06:04'),
 (6, 'วิภาพร ปู่แก้ว', '7412563095', 'ธนาคารกรุงศรีอยุธยา', 'krungsri.png', '868189996689324', 2, '2019-03-03 03:07:36'),
-(7, 'น้ำตาล หวานเจี๊ยบ', '1245003621', 'ธนาคารทหารไทย', 'tmb.png', '868189996689324', 1, '2019-03-03 02:16:00');
+(7, 'น้ำตาล หวานเจี๊ยบ', '1245003621', 'ธนาคารทหารไทย', 'tmb.png', '868189996689324', 1, '2019-03-03 02:16:00'),
+(8, 'นภัสสร พวงไทย', '0944930751', 'พร้อมเพย์', 'promptpay.png', '868189996689324', 1, '2019-03-03 08:49:46');
 
 -- --------------------------------------------------------
 
@@ -103,7 +135,7 @@ INSERT INTO `product_group` (`productGroupId`, `productGroupName`, `productGroup
 (2, 'กระเป๋า', '868189996689324', 1, '2019-02-24 02:39:03'),
 (3, 'รองเท้า', '868189996689324', 1, '2019-02-24 02:39:14'),
 (4, 'โต๊ะ', '868189996689324', 1, '2019-02-24 03:01:12'),
-(5, 'ไฟ', '868189996689324', 1, '2019-02-24 03:09:50'),
+(5, 'ไฟ', '868189996689324', 2, '2019-03-03 16:21:56'),
 (6, 'ทีวี', '868189996689324', 1, '2019-02-24 06:58:11'),
 (7, 'แอร์', '350348718897021', 1, '2019-02-24 07:32:37');
 
@@ -116,6 +148,12 @@ INSERT INTO `product_group` (`productGroupId`, `productGroupName`, `productGroup
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customerId`);
+
+--
+-- Indexes for table `express`
+--
+ALTER TABLE `express`
+  ADD PRIMARY KEY (`expressId`);
 
 --
 -- Indexes for table `payment`
@@ -140,10 +178,16 @@ ALTER TABLE `customer`
   MODIFY `customerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `express`
+--
+ALTER TABLE `express`
+  MODIFY `expressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_group`

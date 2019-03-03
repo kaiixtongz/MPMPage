@@ -45,7 +45,7 @@
         </li>
 
         <li class="submenu">
-          <a class="" href="#"><i class="fa fa-fw fa-truck"></i><span> การจัดส่งสินค้า </span> </a>
+          <a class="" href="<?php echo SITE_URL('Express') ?>"><i class="fa fa-fw fa-truck"></i><span> การจัดส่งสินค้า </span> </a>
         </li>
 
         <!-- <li class="submenu">
