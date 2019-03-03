@@ -42,12 +42,12 @@
 
 															<td class="text-center">
 
-                                <button type="button" class="btn btn-warning btn-sm"
+                                <button type="button" class="btn btn-link btn-sm"
                                 data-toggle="modal"
                                 data-target="#CustomerUpdate<?php echo $dataCustomer['customerId']; ?>"> แก้ไข </button>
 
                                 <a href="<?php echo SITE_URL('Customer/CustomerDelete/'.$dataCustomer['customerId']); ?>"
-                                  class="btn btn-danger btn-sm"
+                                  class="btn btn-link btn-sm"
                                   onClick="javascript: return confirm('ต้องการลบใช่หรือไม่')"> ลบ </a>
                               </td>
 														</tr>

@@ -13,14 +13,13 @@ class CustomerModel extends CI_Model {
 
     return $dataCustomer;
 
-
   }
 
   public function CustomerInsert($dataInsert)
   {
     $this->db->insert('customer',$dataInsert);
-  }
 
+  }
 
   public function CustomerUpdate($dataUpdate)
   {

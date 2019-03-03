@@ -25,7 +25,7 @@
 														<tr>
 															<th class="text-center" width="10%">ลำดับ</th>
 															<th class="text-center">ชื่อหมวดหมู่สินค้า</th>
-															<th class="text-center" width="30%">การจัดการ</th>
+															<th class="text-center" width="20%">การจัดการ</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -37,12 +37,12 @@
 															<td> <b> <?php echo $dataProductGroup['productGroupName'] ?> </b> </td>
 															<td class="text-center">
 
-                                <button type="button" class="btn btn-warning btn-sm"
+                                <button type="button" class="btn btn-link btn-sm"
                                 data-toggle="modal"
                                 data-target="#ProductGroupUpdate<?php echo $dataProductGroup['productGroupId']; ?>"> แก้ไข </button>
 
                                 <a href="<?php echo SITE_URL('ProductGroup/ProductGroupDelete/'.$dataProductGroup['productGroupId']); ?>"
-                                  class="btn btn-danger btn-sm"
+                                  class="btn btn-link btn-sm"
                                   onClick="javascript: return confirm('ต้องการลบใช่หรือไม่')"> ลบ </a>
                               </td>
 														</tr>

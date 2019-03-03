@@ -41,7 +41,7 @@
         </li>
 
         <li class="submenu">
-          <a class="" href="#"><i class="fa fa-fw fa-money"></i><span> ชำระเงิน </span> </a>
+          <a class="" href="<?php echo SITE_URL('Payment'); ?>"><i class="fa fa-fw fa-money"></i><span> บัญชีธนาคาร </span> </a>
         </li>
 
         <li class="submenu">
