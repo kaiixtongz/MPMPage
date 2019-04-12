@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2019 at 06:03 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Apr 12, 2019 at 04:09 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -82,6 +82,38 @@ INSERT INTO `express` (`expressId`, `expressName`, `expressPrice`, `expressDetai
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `orderId` int(11) NOT NULL,
+  `customerId` varchar(50) NOT NULL,
+  `expressId` varchar(50) NOT NULL,
+  `orderTotal` varchar(50) NOT NULL,
+  `orderDiscount` varchar(50) NOT NULL,
+  `orderConnect` varchar(50) NOT NULL,
+  `orderStatus` int(11) NOT NULL DEFAULT '1',
+  `orderTimeLog` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_product`
+--
+
+CREATE TABLE `order_product` (
+  `order_productId` int(11) NOT NULL,
+  `productId` varchar(50) NOT NULL,
+  `productValue` varchar(50) NOT NULL,
+  `orderId` varchar(50) NOT NULL,
+  `order_productStatus` int(11) NOT NULL DEFAULT '1',
+  `order_productTimeLog` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -135,27 +167,27 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`productId`, `productName`, `productPrice`, `productDetail`, `productImage`, `productConnect`, `productGroupId`, `productStatus`, `productTimeLog`) VALUES
 (1, 'Acer Aspire F15', '20000', 'Intel Core i5\r\nRam 8 GB\r\nHDD 1000 GB', '20190309131144.jpg', '868189996689324', 8, 1, '2019-03-09 12:11:44'),
-(2, 'HP OMEN', '40000', 'ไม่รู้', '20190309133335.jpg', '868189996689324', 8, 1, '2019-03-09 12:33:35'),
-(3, 'Alien', '69000', '-', '20190309133613.jpg', '868189996689324', 8, 1, '2019-03-09 13:03:14'),
-(4, 'Mini Notebook', '14590', '-', '20190309133751.jpg', '868189996689324', 8, 1, '2019-03-09 13:03:16'),
-(5, 'ทดสอบ', '12345', '-', '20190309134711.jpg', '868189996689324', 8, 1, '2019-03-09 13:15:36'),
-(6, 'ทดสอบ 2', '98', '5\r\n4', '20190309134924.jpg', '868189996689324', 8, 1, '2019-03-09 13:15:40'),
-(7, 'ทดสอบ', '12356', '-', '20190309142716.jpg', '868189996689324', 8, 1, '2019-03-09 13:27:16'),
-(8, 'Samsung', '37500', '-', '20190325095224.jpg', '868189996689324', 6, 1, '2019-03-25 08:52:41'),
-(9, 'Van', '1990', '-ดำ', '20190325094841.jpg', '868189996689324', 3, 1, '2019-03-26 06:40:04'),
+(2, 'HP OMEN', '40000', '', '20190309133335.jpg', '868189996689324', 8, 1, '2019-04-12 14:02:39'),
+(3, 'Alien', '69000', '', '20190309133613.jpg', '868189996689324', 8, 1, '2019-04-12 14:01:20'),
+(4, 'Mini Notebook', '14590', '', '20190309133751.jpg', '868189996689324', 8, 1, '2019-04-12 14:02:27'),
+(5, 'ทดสอบ', '12345', '', '20190309134711.jpg', '868189996689324', 8, 1, '2019-04-12 14:02:29'),
+(6, 'ทดสอบ 2', '98', '', '20190309134924.jpg', '868189996689324', 8, 1, '2019-04-12 14:02:26'),
+(7, 'ทดสอบ', '12356', '', '20190309142716.jpg', '868189996689324', 8, 1, '2019-04-12 14:02:30'),
+(8, 'Samsung', '37500', '', '20190325095224.jpg', '868189996689324', 6, 1, '2019-04-12 14:02:31'),
+(9, 'Van', '1990', '', '20190325094841.jpg', '868189996689324', 3, 1, '2019-04-12 14:02:32'),
 (10, '4x6 นิ้ว', '15', '', 'noImage.png', '868189996689324', 1, 1, '2019-03-09 13:38:27'),
-(11, 'Snap', '3', '-', 'noImage.png', '868189996689324', 1, 1, '2019-03-25 08:55:09'),
-(12, '...', '123', '-', 'noImage.png', '868189996689324', 3, 2, '2019-04-05 04:06:26'),
+(11, 'Snap', '3', '', 'noImage.png', '868189996689324', 1, 1, '2019-04-12 14:02:34'),
+(12, '...', '123', '', 'noImage.png', '868189996689324', 3, 2, '2019-04-12 14:02:35'),
 (13, 'ทดสอบ', '15455', '', 'noImage.png', '868189996689324', 8, 2, '2019-03-25 09:25:07'),
-(14, 'LG', '45000', '-', '20190325095855.jpg', '868189996689324', 6, 2, '2019-03-25 09:21:40'),
-(15, 'Hitachi', '29999', '- 8000 BTU', '20190325100414.jpg', '350348718897021', 7, 1, '2019-03-25 09:04:14'),
-(16, 'vannn', '1999', '-', '20190326073756.jpg', '868189996689324', 3, 2, '2019-04-05 04:06:30'),
-(17, 'ทดสอบ', '1236', '-', 'noImage.png', '868189996689324', 3, 2, '2019-04-05 04:06:36'),
-(18, 'สมุดเล่มเล็ก', '39', '-', 'noImage.png', '868189996689324', 9, 1, '2019-03-28 09:24:50'),
-(19, 'Converse Jack Purcell', '2200', '-', '20190405060737.jpg', '868189996689324', 3, 1, '2019-04-05 04:07:37'),
-(20, 'Adidas', '2300', '-', '20190405060840.jpg', '868189996689324', 3, 1, '2019-04-05 04:08:40'),
-(21, 'adidas', '2400', '-', '20190405060936.jpg', '868189996689324', 3, 1, '2019-04-05 04:09:36'),
-(22, 'converse star', '1690', '-', '20190405061046.jpg', '868189996689324', 3, 1, '2019-04-05 04:10:46');
+(14, 'LG', '45000', '', '20190325095855.jpg', '868189996689324', 6, 2, '2019-04-12 14:02:54'),
+(15, 'Hitachi', '29999', '8000 BTU', '20190325100414.jpg', '350348718897021', 7, 1, '2019-04-12 14:02:51'),
+(16, 'vannn', '1999', '', '20190326073756.jpg', '868189996689324', 3, 2, '2019-04-12 14:02:55'),
+(17, 'ทดสอบ', '1236', '', 'noImage.png', '868189996689324', 3, 2, '2019-04-12 14:02:56'),
+(18, 'สมุดเล่มเล็ก', '39', '', 'noImage.png', '868189996689324', 9, 1, '2019-04-12 14:02:57'),
+(19, 'Converse Jack Purcell', '2200', '', '20190405060737.jpg', '868189996689324', 3, 1, '2019-04-12 14:02:57'),
+(20, 'Adidas', '2300', '', '20190405060840.jpg', '868189996689324', 3, 1, '2019-04-12 14:02:59'),
+(21, 'adidas', '2400', '', '20190405060936.jpg', '868189996689324', 3, 1, '2019-04-12 14:03:00'),
+(22, 'converse star', '1690', '', '20190405061046.jpg', '868189996689324', 3, 1, '2019-04-12 14:03:01');
 
 -- --------------------------------------------------------
 
@@ -203,6 +235,18 @@ ALTER TABLE `express`
   ADD PRIMARY KEY (`expressId`);
 
 --
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`orderId`);
+
+--
+-- Indexes for table `order_product`
+--
+ALTER TABLE `order_product`
+  ADD PRIMARY KEY (`order_productId`);
+
+--
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -237,6 +281,18 @@ ALTER TABLE `express`
   MODIFY `expressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `order_product`
+--
+ALTER TABLE `order_product`
+  MODIFY `order_productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
@@ -246,7 +302,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `product_group`

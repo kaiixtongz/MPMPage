@@ -17,6 +17,15 @@
         </li>
 
         <li class="submenu">
+
+          <a <?php if($this->uri->segment(1)=="Bill"){echo "class='active'";}; ?>
+            href="<?php echo SITE_URL('Bill'); ?>">
+              <i class="fa fa-fw fa-id-card-o"></i>
+              <span> เปิดบิล </span>
+            </a>
+        </li>
+
+        <li class="submenu">
           <a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span> สถานะการชำระเงิน </span> <span class="menu-arrow"></span></a>
           <ul class="list-unstyled">
             <li><a href="#"> <i class="fa fa-fw fa-check"></i>ชำระแล้ว</a></li>

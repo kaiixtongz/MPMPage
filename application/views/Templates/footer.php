@@ -98,7 +98,8 @@ function logout(){
   $(document).ready(function() {
     // data-tables
     $('#example1').DataTable();
-
+    $('#example2').DataTable();
+    $('#example3').DataTable();
     // counter-up
     $('.counter').counterUp({
       delay: 10,
