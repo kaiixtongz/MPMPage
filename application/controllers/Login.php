@@ -38,10 +38,13 @@ class Login extends CI_Controller {
 
 		public function Logout()
 		{
-			$this->load->view('Login');
+			// $this->load->view('Login');
 			@session_start();
 			@session_destroy();
-			redirect("Login");
+			redirect("/Login");
+
+			// echo "<script>alert('ออกจากระบบ')</script>";
+			// echo "<script>document.location=('".SITE_URL('Login')."')</script>";
 
 		}
 

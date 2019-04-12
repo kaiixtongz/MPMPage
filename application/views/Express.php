@@ -36,8 +36,8 @@
                                 <td class="text-center"> <img src="<?php echo BASE_URL('uploads/express/' . $dataExpress['expressImage']) ?>" style="width:70px"> </td>
 
                                 <td class="text-left">
-                                  <b><?php echo $dataExpress['expressDetail'] ?></b><br>
-                                  <b>รูปแบบการจัดส่ง</b> : <b><?php echo $dataExpress['expressName'] ?></b> <br>
+                                  <b><?php echo $dataExpress['expressName'] ?></b><br>
+                                  <b>รูปแบบการจัดส่ง</b> : <b><?php echo $dataExpress['expressDetail'] ?></b> <br>
                                   <b>อัตราค่าบริการ</b> : <b><?php echo $dataExpress['expressPrice'] ?></b> <br>
                                   <!-- <b><?php echo $dataExpress['expressPrice'] ?> บาท</b> -->
                                 </td>

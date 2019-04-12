@@ -1,7 +1,7 @@
 <?php echo form_open_multipart('ProductGroup/ProductGroupInsert')?>
 
-  <div class="modal fade" id="ProductGroupInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade bd-example-modal-l" id="ProductGroupInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -13,7 +13,7 @@
 
         <div class="modal-body">
           <center>
-          <table>
+          <table style="width:70%">
           <tr>
             <td class="text-center">ชื่อหมวดหมู่ : &nbsp;</td>
             <td class="text-center"><input autocomplete="off" name="productGroupName" type="text" required class="form-control" style="margin-top:20px;" required></td>

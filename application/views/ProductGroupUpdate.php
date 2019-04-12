@@ -2,12 +2,12 @@
 
   <?php echo form_open_multipart('ProductGroup/ProductGroupUpdate')?>
 
-  <div class="modal fade" id="ProductGroupUpdate<?php echo $dataUpdate['productGroupId']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade bd-example-modal-l" id="ProductGroupUpdate<?php echo $dataUpdate['productGroupId']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">เพิ่มหมวดหมู่สินค้า</h5>
+          <h5 class="modal-title" id="exampleModalLabel">เเก้ไขหมวดหมู่สินค้า</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,7 +15,7 @@
 
         <div class="modal-body">
           <center>
-          <table>
+          <table style="width:70%">
           <tr>
             <td class="text-center">ชื่อหมวดหมู่ : &nbsp;</td>
             <td class="text-center">

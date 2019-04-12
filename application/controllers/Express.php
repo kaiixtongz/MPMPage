@@ -59,21 +59,21 @@ class Express extends CI_Controller {
 	 }else {
 
 		 if ($dataInsert['expressImage'] == "thaipost.png") {
-			 $dataInsert['expressDetail'] = "ไปรษณีย์ไทย";
+			 $dataInsert['expressName'] = "ไปรษณีย์ไทย";
 		 } else if($dataInsert['expressImage'] == "kerry.png"){
-				 $dataInsert['expressDetail'] = "Kerry";
+				 $dataInsert['expressName'] = "Kerry";
 		 } else if($dataInsert['expressImage'] == "alpha.png"){
-				 $dataInsert['expressDetail'] = "Alpha";
+				 $dataInsert['expressName'] = "Alpha";
 		 } else if($dataInsert['expressImage'] == "nimexpress.png"){
-				 $dataInsert['expressDetail'] = "Nim Express";
+				 $dataInsert['expressName'] = "Nim Express";
 		 } else if($dataInsert['expressImage'] == "grab.png"){
-				 $dataInsert['expressDetail'] = "Grab Express";
+				 $dataInsert['expressName'] = "Grab Express";
 		 } else if($dataInsert['expressImage'] == "lineman.png"){
-				 $dataInsert['expressDetail'] = "Lineman";
+				 $dataInsert['expressName'] = "Lineman";
 		 } else if($dataInsert['expressImage'] == "lalamove.png"){
-					 $dataInsert['expressDetail'] = "Lalamove";
+					 $dataInsert['expressName'] = "Lalamove";
 		 } else {
-			 $dataInsert['expressDetail'] = "อื่น ๆ";
+			 $dataInsert['expressName'] = "อื่น ๆ";
 		 }
 
 		 $dataInsert['expressConnect'] = $_SESSION['facebookId'];
@@ -103,21 +103,21 @@ class Express extends CI_Controller {
 	 }else {
 
 		 if ($dataUpdate['expressImage'] == "thaipost.png") {
-			 $dataUpdate['expressDetail'] = "ไปรษณีย์ไทย";
+			 $dataUpdate['expressName'] = "ไปรษณีย์ไทย";
 		 } else if($dataUpdate['expressImage'] == "kerry.png"){
-				 $dataUpdate['expressDetail'] = "Kerry";
+				 $dataUpdate['expressName'] = "Kerry";
 		 } else if($dataUpdate['expressImage'] == "alpha.png"){
-				 $dataUpdate['expressDetail'] = "Alpha";
+				 $dataUpdate['expressName'] = "Alpha";
 		 } else if($dataUpdate['expressImage'] == "nimexpress.png"){
-				 $dataUpdate['expressDetail'] = "Nim Express";
+				 $dataUpdate['expressName'] = "Nim Express";
 		 } else if($dataUpdate['expressImage'] == "grab.png"){
-				 $dataUpdate['expressDetail'] = "Grab Express";
+				 $dataUpdate['expressName'] = "Grab Express";
 		 } else if($dataUpdate['expressImage'] == "lineman.png"){
-				 $dataUpdate['expressDetail'] = "Lineman";
+				 $dataUpdate['expressName'] = "Lineman";
 		 } else if($dataUpdate['expressImage'] == "lalamove.png"){
-					 $dataUpdate['expressDetail'] = "Lalamove";
+					 $dataUpdate['expressName'] = "Lalamove";
 		 } else {
-			 $dataUpdate['expressDetail'] = "อื่น ๆ";
+			 $dataUpdate['expressName'] = "อื่น ๆ";
 		 }
 
 		 $this->ExpressModel->ExpressUpdate($dataUpdate);

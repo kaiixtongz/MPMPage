@@ -38,7 +38,7 @@ class ProductGroup extends CI_Controller {
 		 // การดึงค่ามาเก็บไว้ใน Array เพื่อทำการส่งไปที่อีกฟังก์ชั่น
 
 		$dataProductGroup = $this->ProductGroupModel->ProductGroupSelect($_SESSION['facebookId']);
-
+		
 	 	$Value = array(
 	 		'View' => "ProductGroup",
 	 		'Result' => array(

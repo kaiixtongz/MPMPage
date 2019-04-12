@@ -45,11 +45,18 @@
   <div class="container-login100" style="background-image: url('<?php echo BASE_URL("assets/Login/"); ?>images/bg-01.jpg');">
    <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
     <form class="login100-form validate-form flex-sb flex-w">
-     <span class="login100-form-title p-b-53">
-      Login Facebook
-     </span>
 
-     <div class="p-t-31 p-b-9" style="margin-top:-3em">
+     <!-- <span class="login100-form-title p-b-53">
+      Login Facebook
+     </span> -->
+
+     <div id="center">
+       <img src="<?php echo BASE_URL('uploads/login/login.png'); ?>" style="height:300px">
+     </div>
+
+     <br>
+
+     <!-- <div class="p-t-31 p-b-9" style="margin-top:-3em">
       <span class="txt1">
        Username
       </span>
@@ -74,7 +81,7 @@
       <button class="login100-form-btn">
        Login
       </button>
-     </div>
+     </div> -->
 
     <div id="center">
      <div class="fb-login-button" data-max-rows="1" data-width="400" data-size="large" data-button-type="login_with" scope="public_profile,email" onlogin="checkLoginState();"></div>
@@ -82,9 +89,9 @@
 
     <div class="w-full text-center p-t-55" style="margin-bottom:1em ; margin-top:-3em">
 
-     <a href="#" class="txt2 bo1">
+     <!-- <a href="#" class="txt2 bo1">
       Register Now?
-     </a>
+     </a> -->
 
     </div>
 
@@ -104,9 +111,11 @@ function statusChangeCallback(response) {
 
  if (response.status === 'connected') {
   // Logged into your app and Facebook.
-  testAPI();
+    testAPI();
+
  } else {
       // Login fail
+
  }
 }
 
@@ -127,7 +136,8 @@ window.fbAsyncInit = function() {
  });
 
  FB.getLoginStatus(function(response) {
-  statusChangeCallback(response);
+   // console.log(response);
+  // statusChangeCallback(response);
  });
 
 };
@@ -174,13 +184,13 @@ function login_facebook(response){
 //  $.post("<?php echo SITE_URL('Login/saveUserData'); ?>", {oauth_provider:'facebook', response: JSON.stringify(response)}, function(data){ return true; });
 // }
 
-function logout(){
- FB.logout(function(response) {
-  // user is now logged out
-  // console.log(response);
-  window.location = '<?php echo SITE_URL('Login'); ?>';
- });
-}
+// function logout(){
+//  FB.logout(function(response) {
+//   // user is now logged out
+//   // console.log(response);
+//   window.location = '<?php echo SITE_URL('Login'); ?>';
+//  });
+// }
 
 </script>
 

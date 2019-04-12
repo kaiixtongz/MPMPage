@@ -32,7 +32,7 @@
             </tr>
               <tr>
                 <td class="text-center">รูปแบบการจัดส่ง : &nbsp;</td>
-                <td class="text-center"><input autocomplete="off" name="expressName" type="text" class="form-control" required></td>
+                <td class="text-center"><input autocomplete="off" name="expressDetail" type="text" class="form-control" required></td>
               </tr>
               <tr>
                 <td class="text-center">ค่าส่งสินค้า : &nbsp;</td>

@@ -8,11 +8,12 @@
       <ul>
 
         <li class="submenu">
+
           <a <?php if($this->uri->segment(1)=="Dashboard"){echo "class='active'";}; ?>
             href="<?php echo SITE_URL('Dashboard'); ?>">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span> หน้าแรก </span>
-          </a>
+              <i class="fa fa-fw fa-dashboard"></i>
+              <span> หน้าแรก </span>
+            </a>
         </li>
 
         <li class="submenu">
@@ -25,27 +26,43 @@
         </li>
 
         <li class="submenu">
-          <a class="" href="<?php echo SITE_URL ('Customer') ?>"><i class="fa fa-fw fa-group"></i><span> ลูกค้า </span> </a>
+          <a <?php if($this->uri->segment(1)=="Customer"){echo "class='active'";}; ?>
+            href="<?php echo SITE_URL('Customer'); ?>">
+            <i class="fa fa-fw fa-group"></i>
+            <span> ลูกค้า </span>
+          </a>
         </li>
 
         <li class="submenu">
-          <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> <span> สินค้า </span> <span class="menu-arrow"></span></a>
+          <a <?php if($this->uri->segment(1)=="ProductGroup" || $this->uri->segment(1)=="Product"){echo "class='active'";}; ?> href="#">
+            <i class="fa fa-fw fa-shopping-cart"></i>
+            <span> สินค้า </span> <span class="menu-arrow"></span>
+          </a>
+
           <ul class="list-unstyled">
             <li><a href="<?php echo SITE_URL('ProductGroup'); ?>"> + จัดการหมวดหมู่สินค้า</a></li>
 
             <?php foreach ($dataProductGroup as $dataProductGroup): ?>
-              <li><a href="<?php echo SITE_URL('Product'); ?>"> <?php echo "- " . $dataProductGroup['productGroupName'] ?></a></li>
+              <li><a href="<?php echo SITE_URL('Product/Index/'.$dataProductGroup['productGroupId']); ?>"> <?php echo "- " . $dataProductGroup['productGroupName'] ?></a></li>
             <?php endforeach; ?>
 
           </ul>
         </li>
 
         <li class="submenu">
-          <a class="" href="<?php echo SITE_URL('Payment'); ?>"><i class="fa fa-fw fa-money"></i><span> บัญชีธนาคาร </span> </a>
+          <a <?php if($this->uri->segment(1)=="Payment"){echo "class='active'";}; ?>
+            href="<?php echo SITE_URL('Payment'); ?>">
+            <i class="fa fa-fw fa-money"></i>
+            <span> บัญชีธนาคาร </span>
+          </a>
         </li>
 
         <li class="submenu">
-          <a class="" href="<?php echo SITE_URL('Express') ?>"><i class="fa fa-fw fa-truck"></i><span> การจัดส่งสินค้า </span> </a>
+          <a <?php if($this->uri->segment(1)=="Express"){echo "class='active'";}; ?>
+            href="<?php echo SITE_URL('Express'); ?>">
+            <i class="fa fa-fw fa-truck"></i>
+            <span> การจัดส่งสินค้า </span>
+          </a>
         </li>
 
         <!-- <li class="submenu">
