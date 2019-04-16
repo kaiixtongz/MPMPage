@@ -31,6 +31,7 @@ class BillModel extends CI_Model {
 
     $selectCustomer = $this->db
     ->where('orderConnect',$facebookId)
+    ->where('orderStatus',1)
     ->join('customer','customer.customerId = order.customerId')
     ->get('order')
     ->result_array();
@@ -42,6 +43,22 @@ class BillModel extends CI_Model {
   public function InsertProduct($dataInsert)
   {
     $this->db->insert('order_product',$dataInsert);
+  }
+
+  public function InsertProductValue($dataInsert)
+  {
+    $this->db
+    ->where('order_productId',$dataInsert['order_productId'])
+    ->where('orderId',$dataInsert['orderId'])
+    ->update('order_product',$dataInsert);
+  }
+
+  public function InsertOrderDiscount($dataInsert)
+  {
+    $this->db
+    ->where('orderId',$dataInsert['orderId'])
+    ->where('orderConnect',$dataInsert['orderConnect'])
+    ->update('order',$dataInsert);
   }
 
   public function SelectProduct($orderId)
@@ -76,6 +93,16 @@ class BillModel extends CI_Model {
     $this->db
     ->where('orderId', $dataDelete['orderId'])
     ->delete('order_product');
+
+  }
+
+  public function InsertBill($dataInsert)
+  {
+
+    $this->db
+    ->where('orderId',$dataInsert['orderId'])
+    ->where('orderConnect',$dataInsert['orderConnect'])
+    ->update('order',$dataInsert);
     
   }
 

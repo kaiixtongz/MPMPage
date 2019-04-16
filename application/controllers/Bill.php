@@ -43,7 +43,7 @@ class Bill extends CI_Controller {
 
 
 		 // echo "<pre>";
-		 // print_r($selectProduct);
+		 // print_r($selectCustomer);
 		 // exit();
 
 		$Value = array(
@@ -102,6 +102,41 @@ class Bill extends CI_Controller {
 
 	}
 
+	public function InsertProductValue()
+	{
+
+		$dataInsert = $this->input->post();
+		$dataInsert['orderId'] = $_SESSION['orderId'];
+
+		$this->BillModel->InsertProductValue($dataInsert);
+
+		// echo "<pre>";
+		// print_r($dataInsert);
+		// exit();
+
+		// echo "<script>alert('เลือกสินค้าสำเร็จ')</script>";
+		echo "<script>document.location=('".SITE_URL('Bill')."')</script>";
+
+	}
+
+	public function InsertOrderDiscount()
+	{
+
+		$dataInsert = $this->input->post();
+		$dataInsert['orderId'] = $_SESSION['orderId'];
+		$dataInsert['orderConnect'] = $_SESSION['facebookId'];
+
+		$this->BillModel->InsertOrderDiscount($dataInsert);
+
+		// echo "<pre>";
+		// print_r($dataInsert);
+		// exit();
+
+		// echo "<script>alert('เลือกสินค้าสำเร็จ')</script>";
+		echo "<script>document.location=('".SITE_URL('Bill')."')</script>";
+
+	}
+
 	public function DeleteProduct()
 	{
 
@@ -139,6 +174,29 @@ class Bill extends CI_Controller {
 		// exit();
 
 		echo "<script>alert('ยกเลิกบิลสำเร็จ')</script>";
+		echo "<script>document.location=('".SITE_URL('Bill')."')</script>";
+
+	}
+
+	public function InsertBill()
+	{
+
+		$dataInsert = $this->input->post();
+		$dataInsert['orderId'] = $_SESSION['orderId'];
+		$dataInsert['orderConnect'] = $_SESSION['facebookId'];
+		$dataInsert['orderStatus'] = 2;
+
+		$dataInsert['orderConnect'] = $_SESSION['facebookId'];
+
+		$this->BillModel->InsertBill($dataInsert);
+
+		unset($_SESSION['orderId']);
+
+		// echo "<pre>";
+		// print_r($dataInsert);
+		// exit();
+
+		echo "<script>alert('เปิดบิลสำเร็จ')</script>";
 		echo "<script>document.location=('".SITE_URL('Bill')."')</script>";
 
 	}
