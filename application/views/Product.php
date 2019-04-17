@@ -25,11 +25,11 @@
 
                 <?php foreach ($dataProduct as $dataProduct): ?>
                   <div class="col-3" style="margin-bottom:2em">
-                    <div class="card" style="width:190px ; height:240px">
-                      <img src="<?php echo BASE_URL('uploads/product/' . $dataProduct['productImage']) ?>" style="height:120px ; padding:3px">
+                    <div class="card" style="width:250px ; height:300px">
+                      <img src="<?php echo BASE_URL('uploads/product/' . $dataProduct['productImage']) ?>" style="height:180px ; padding:3px">
                       <div class="card-body">
                         <div class="text-center"> <b><?php echo $dataProduct['productName'] ?></b> </div>
-                        <div class="text-center"> <b> ราคา : <?php echo $dataProduct['productPrice'] ?> บาท</b> </div>
+                        <div class="text-center"> <b> ราคา : <?php echo number_format($dataProduct['productPrice']) ?> บาท</b> </div>
                         <div class="text-center" style="margin-top:5px">
 
                           <button class="btn btn-link btn-sm"

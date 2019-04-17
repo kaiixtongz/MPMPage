@@ -186,7 +186,9 @@ class Bill extends CI_Controller {
 		$dataInsert['orderConnect'] = $_SESSION['facebookId'];
 		$dataInsert['orderStatus'] = 2;
 
-		$dataInsert['orderConnect'] = $_SESSION['facebookId'];
+		$DateNow = Date('ymd-his');
+		$QTcode = "QT-".$DateNow;
+		$dataInsert['orderNo'] = $QTcode;
 
 		$this->BillModel->InsertBill($dataInsert);
 

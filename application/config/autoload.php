@@ -140,6 +140,7 @@ $autoload['model'] = array(
   'ExpressModel',
   'ProductModel',
   'BillModel',
+  'BillStatusModel',
 
 
 );
