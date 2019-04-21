@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 01:39 PM
+-- Generation Time: Apr 21, 2019 at 05:33 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -96,7 +96,7 @@ CREATE TABLE `order` (
   `customerId` varchar(50) NOT NULL,
   `expressId` varchar(50) NOT NULL,
   `orderTotal` varchar(50) NOT NULL,
-  `orderDiscount` varchar(50) NOT NULL,
+  `orderDiscount` int(11) NOT NULL,
   `orderConnect` varchar(50) NOT NULL,
   `orderStatus` int(11) NOT NULL DEFAULT '1',
   `orderTimeLog` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -107,7 +107,8 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`orderId`, `orderNo`, `customerId`, `expressId`, `orderTotal`, `orderDiscount`, `orderConnect`, `orderStatus`, `orderTimeLog`) VALUES
-(1, 'QT-190417-113443', '8', '7', '38000', '470', '350348718897021', 2, '2019-04-17 06:31:23');
+(1, 'QT-190421-030351', '6', '7', '44460', 460, '350348718897021', 2, '2019-04-21 10:03:24'),
+(2, 'QT-190421-034845', '7', '10', '17970', 0, '350348718897021', 2, '2019-04-21 09:50:05');
 
 -- --------------------------------------------------------
 
@@ -129,10 +130,12 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`order_productId`, `productId`, `productValue`, `orderId`, `order_productStatus`, `order_productTimeLog`) VALUES
-(1, '23', '1', '1', 1, '2019-04-17 04:10:19'),
-(2, '24', '1', '1', 1, '2019-04-17 04:10:20'),
-(3, '25', '1', '1', 1, '2019-04-17 04:10:21'),
-(4, '26', '1', '1', 1, '2019-04-17 04:10:22');
+(1, '23', '1', '1', 1, '2019-04-21 08:02:56'),
+(2, '24', '1', '1', 1, '2019-04-21 08:03:06'),
+(3, '25', '2', '1', 1, '2019-04-21 08:03:21'),
+(4, '26', '1', '1', 1, '2019-04-21 08:03:28'),
+(5, '25', '1', '2', 1, '2019-04-21 08:47:33'),
+(6, '26', '2', '2', 1, '2019-04-21 08:47:42');
 
 -- --------------------------------------------------------
 
@@ -164,7 +167,11 @@ INSERT INTO `payment` (`paymentId`, `paymentName`, `paymentNumber`, `paymentDeta
 (6, 'วิภาพร ปู่แก้ว', '7412563095', 'ธนาคารกรุงศรีอยุธยา', 'krungsri.png', '868189996689324', 1, '2019-03-03 16:47:16'),
 (7, 'น้ำตาล หวานเจี๊ยบ', '1245003621', 'ธนาคารทหารไทย', 'tmb.png', '868189996689324', 1, '2019-03-03 16:47:13'),
 (8, 'นภัสสร พวงไทย', '0944930751', 'พร้อมเพย์', 'promptpay.png', '868189996689324', 1, '2019-03-03 08:49:46'),
-(9, 'นภัสสร พวงไทยยยยย', '0324053555', 'ธนาคารกรุงศรีอยุธยา', 'krungsri.png', '868189996689324', 2, '2019-03-09 13:34:09');
+(9, 'นภัสสร พวงไทยยยยย', '0324053555', 'ธนาคารกรุงศรีอยุธยา', 'krungsri.png', '868189996689324', 2, '2019-03-09 13:34:09'),
+(10, 'อดิพงษ์ ธรรมนวกุล', '0355974182', 'ธนาคารกสิกรไทย', 'kbank.png', '350348718897021', 1, '2019-04-21 10:05:27'),
+(11, 'อดิพงษ์ ธรรมนวกุล', '5138486741', 'ธนาคารไทยพาณิชย์', 'scb.png', '350348718897021', 1, '2019-04-21 10:05:47'),
+(12, 'อดิพงษ์ ธรรมนวกุล', '2594841866', 'ธนาคารกรุงเทพ', 'bbl.png', '350348718897021', 1, '2019-04-21 10:14:36'),
+(13, 'อดิพงษ์ ธรรมนวกุล', '3759715809', 'ธนาคารกรุงศรีอยุธยา', 'krungsri.png', '350348718897021', 1, '2019-04-21 10:15:12');
 
 -- --------------------------------------------------------
 
@@ -300,19 +307,19 @@ ALTER TABLE `express`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `order_productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `paymentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product`

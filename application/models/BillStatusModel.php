@@ -46,26 +46,5 @@ class BillStatusModel extends CI_Model {
 
   }
 
-  public function SelectPayment()
-  {
-    $dataPayment = $this->db
-    ->where('order.orderId', $dataSelect['orderId'])
-    ->where('order.orderConnect', $dataSelect['orderConnect'])
-    ->join('customer','customer.customerId = order.customerId')
-    ->join('order_product','order_product.orderId = order.orderId')
-    ->join('product','product.productId = order_product.productId')
-    ->join('express','express.expressId = order.expressId')
-    ->get('order')
-    ->result_array();
-
-    echo "<pre>";
-    // print_r($dataInvoice);
-    // exit();
-
-    return $dataPayment;
-
-
-  }
-
 
 }
