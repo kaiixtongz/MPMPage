@@ -224,7 +224,7 @@
 
   <?php echo form_open_multipart('Bill/InsertBill'); ?>
 
-  <input type="hidden" name="orderTotal" value="<?php echo $total ?>">
+  <input type="hidden" name="orderTotal" value="<?php echo @$sumall ?>">
 
   <div class="row"  style="margin-left:30px">
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">

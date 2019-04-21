@@ -36,6 +36,9 @@
                   <th class="text-center">เบอร์ติดต่อ</th>
                   <!-- <th class="text-center">อีเมลลูกค้า</th> -->
                   <th class="text-center">ยอดชำระ</th>
+                  <!-- <?php if ($BillStatus == "Paid"): ?>
+                    <th class="text-center">จัดส่ง</th>
+                  <?php endif; ?> -->
                   <th class="text-center">พิมพ์</th>
                   <th class="text-center" width="20%">การจัดการ</th>
                 </tr>
@@ -52,7 +55,7 @@
                     <td class="text-center"> <b> <?php echo substr($dataOrder['customerTel'],0,3) . "-" . substr($dataOrder['customerTel'],3,3) . "-" . substr($dataOrder['customerTel'],6,4) ?> </b> </td>
                     <!-- <td class="text-left"> <b> <?php echo $dataOrder['customerEmail'] ?> </b> </td> -->
                     <td class="text-right"> <b> <?php echo number_format($dataOrder['orderTotal']) ?> บาท </b> </td>
-                    <td class="text-center"><button class="btn btn-sm"> <i class="fa fa-fw fa-print"></i> </button></td>
+                    <td class="text-center"><a href="<?php echo SITE_URL('BillStatus/Invoice/' . $dataOrder['orderId']); ?>" class="btn btn-sm" target="_blank"> <i class="fa fa-fw fa-print"></i> </a></td>
                     <td class="text-center">
                       <a href="<?php echo SITE_URL('BillStatus/Paid/' . $dataOrder['orderId']); ?>"
                         class="btn btn-link btn-sm" onClick="javascript: return confirm('ตรวจสอบข้อมูลถูกต้องใช่หรือไม่')"> ชำระเงินแล้ว </a>
@@ -76,7 +79,8 @@
                     <td class="text-center"> <b> <?php echo substr($dataOrder['customerTel'],0,3) . "-" . substr($dataOrder['customerTel'],3,3) . "-" . substr($dataOrder['customerTel'],6,4) ?> </b> </td>
                     <!-- <td class="text-left"> <b> <?php echo $dataOrder['customerEmail'] ?> </b> </td> -->
                     <td class="text-right"> <b> <?php echo number_format($dataOrder['orderTotal']) ?> บาท </b> </td>
-                    <td class="text-center"><button class="btn btn-sm"> <i class="fa fa-fw fa-print"></i> </button></td>
+                    <!-- <td class="text-center"><a href="<?php echo SITE_URL('BillStatus/TrackNo'); ?>" class="btn btn-sm" target="_self"> <i class="fa fa-fw fa-truck"></i> </a></td> -->
+                    <td class="text-center"><a href="<?php echo SITE_URL('BillStatus/Invoice/' . $dataOrder['orderId']); ?>" class="btn btn-sm" target="_blank"> <i class="fa fa-fw fa-print"></i> </a></td>
                     <td class="text-center">
                       <a href="<?php echo SITE_URL('BillStatus/UnPaid/' . $dataOrder['orderId']); ?>"
                         class="btn btn-link btn-sm" onClick="javascript: return confirm('ตรวจสอบข้อมูลถูกต้องใช่หรือไม่')"> รอการชำระเงิน </a>
@@ -100,8 +104,11 @@
                     <td class="text-center"> <b> <?php echo substr($dataOrder['customerTel'],0,3) . "-" . substr($dataOrder['customerTel'],3,3) . "-" . substr($dataOrder['customerTel'],6,4) ?> </b> </td>
                     <!-- <td class="text-left"> <b> <?php echo $dataOrder['customerEmail'] ?> </b> </td> -->
                     <td class="text-right"> <b> <?php echo number_format($dataOrder['orderTotal']) ?> บาท </b> </td>
-                    <td class="text-center"><button class="btn btn-sm"> <i class="fa fa-fw fa-print"></i> </button></td>
-                    <td class="text-center"> <b> ยกเลิกบิล </b> </td>
+                    <td class="text-center"><a href="<?php echo SITE_URL('BillStatus/Invoice/' . $dataOrder['orderId']); ?>" class="btn btn-sm" target="_blank"> <i class="fa fa-fw fa-print"></i> </a></td>
+                    <td class="text-center">
+                      <a href="<?php echo SITE_URL('BillStatus/UnPaid/' . $dataOrder['orderId']); ?>"
+                        class="btn btn-link btn-sm" onClick="javascript: return confirm('ตรวจสอบข้อมูลถูกต้องใช่หรือไม่')"> รอการชำระเงิน </a>
+                    </td>
 
                   <?php $i++; endforeach; ?>
                 <?php endif; ?>

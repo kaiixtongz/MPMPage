@@ -22,9 +22,9 @@ class Bill extends CI_Controller {
 		$this->load->view('Templates/sidemenu');
 		$this->load->view($Value['View']);
 		$this->load->view('Templates/footer');
-		$this->load->view('Modal/CustomerModal');
-		$this->load->view('Modal/ProductModal');
-		// $this->load->view('Modal/ExpressModal');
+		$this->load->view('Modals/CustomerModal');
+		$this->load->view('Modals/ProductModal');
+		// $this->load->view('Modals/ExpressModal');
 
 	}
 

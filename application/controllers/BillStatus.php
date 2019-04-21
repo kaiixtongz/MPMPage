@@ -117,6 +117,30 @@ class BillStatus extends CI_Controller {
 
 	}
 
+	public function Invoice()
+	{
+		$orderId = $this->uri->segment(3);
+		$dataSelect = array(
+			'orderId' => $orderId,
+			'orderConnect' => $_SESSION['facebookId'],
+		);
+
+		$dataInvoice = $this->BillStatusModel->SelectInvoice($dataSelect);
+		$dataPayment = $this->PaymentModel->PaymentSelect($_SESSION['facebookId']);
+
+		$Value = array(
+			'View' => "Documents/Invoice",
+			'Result' => array(
+				'dataInvoice' => $dataInvoice,
+				'dataPayment' => $dataPayment,
+
+			)
+		);
+
+		$this->load->view($Value['View'] , $Value['Result']);
+
+	}
+
 
 
 }
