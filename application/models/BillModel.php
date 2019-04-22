@@ -8,9 +8,14 @@ class BillModel extends CI_Model {
     $dataProduct = $this->db
     ->where('productConnect',$facebookId)
     ->where('productStatus',1)
+    ->where('productGroupStatus',1)
     ->join('product_group','product_group.productGroupId = product.productGroupId')
     ->get('product')
     ->result_array();
+
+    // echo "<pre>";
+    // print_r($dataProduct);
+    // exit();
 
     return $dataProduct;
 
@@ -103,7 +108,7 @@ class BillModel extends CI_Model {
     ->where('orderId',$dataInsert['orderId'])
     ->where('orderConnect',$dataInsert['orderConnect'])
     ->update('order',$dataInsert);
-    
+
   }
 
 

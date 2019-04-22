@@ -28,8 +28,8 @@
         <li class="submenu">
           <a href="#"><i class="fa fa-fw fa-calendar-check-o"></i> <span> สถานะการชำระเงิน </span> <span class="menu-arrow"></span></a>
           <ul class="list-unstyled">
-            <li><a href="<?php echo SITE_URL('BillStatus/Index/Paid'); ?>"> <i class="fa fa-fw fa-check"></i>ชำระแล้ว</a></li>
             <li><a href="<?php echo SITE_URL('BillStatus/Index/UnPaid'); ?>"> <i class="fa fa-fw fa-clock-o"></i>รอการชำระ</a></li>
+            <li><a href="<?php echo SITE_URL('BillStatus/Index/Paid'); ?>"> <i class="fa fa-fw fa-check"></i>ชำระแล้ว</a></li>
             <li><a href="<?php echo SITE_URL('BillStatus/Index/Cancel'); ?>"> <i class="fa fa-fw fa-close"></i>ยกเลิก</a></li>
           </ul>
         </li>
